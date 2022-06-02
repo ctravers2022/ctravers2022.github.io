@@ -1,0 +1,216 @@
+
+/* font-family: 'Philosopher', sans-serif; */
+
+:root {
+  --font_heading: 'Philosopher', sans-serif;
+  --font_basic: 'Nunito', sans-serif;
+  --color_accent: rgb(130,50,50);
+  --bonus_prof: 4;
+  --bonus_expertise: calc(var(--bonus_prof) * 2);
+  
+  --abi_STR: min(3, -4);
+  --abi_DEX: min(20, 5);
+  --abi_CON: min(10, 0);
+  --abi_INT: min(12, 1);
+  --abi_WIS: min(12, 1);
+  --abi_CHA: min(12, 1);
+  
+}
+
+/* Basic page style resets */
+* {
+  box-sizing: border-box;
+  font-family: var(--font_basic);
+}
+[hidden] {
+  display: none !important;
+}
+
+h1, h2, h3 {
+  font-family: var(--font_heading);
+}
+
+.statblock {
+  border-top: 2px solid var(--color_accent);
+  padding: 1em 0;
+  max-width:600px;
+}
+
+.statblock_label,
+.ability_label {
+  font-weight:700;
+}
+
+.list_plain {
+  padding:0;
+}
+.list_plain > li {
+  list-style:none;
+  margin-bottom:1em;
+}
+
+
+.statblock.abilities {
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.statblock.abilities .ability {
+  display:grid;
+  text-align:center;
+  margin-bottom: 1em;
+}
+
+.mouseover {
+  position: relative;
+}
+
+.tooltip {
+  left:1em;
+  font-size:.8em;
+  display:none;
+  position:absolute;
+  z-index:100;
+  background-color:rgb(40,40,40);
+  color:white;
+  padding:1em;
+  width: min(50vw, 400px);
+  box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.5);
+
+}
+
+.tooltip p:first-child {
+  margin-top:0;
+}
+.tooltip p:last-child {
+  margin-bottom:0;
+}
+
+.mouseover:hover {
+  background-color:rgb(0,255,255);
+}
+
+.mouseover:hover .tooltip {
+  display:block;
+}
+
+.proficient {
+  color:rgb(255,0,255);
+}
+
+.list_skill {
+  list-style-type: none;
+}
+
+.list_skill .proficient {
+  list-style-type: circle;
+}
+
+.list_skill .expertise {
+  list-style-type: disc;
+}
+
+.abi_str .ability_value:after {
+  counter-reset: str var(--abi_STR);
+  content: " ("counter(str)")";
+}
+
+.abi_dex .ability_value:after {
+  counter-reset: dex var(--abi_DEX);
+  content: " ("counter(dex)")";
+}
+
+.abi_con .ability_value:after {
+  counter-reset: con var(--abi_CON);
+  content: " ("counter(con)")";
+}
+
+.abi_int .ability_value:after {
+  counter-reset: int var(--abi_INT);
+  content: " ("counter(int)")";
+}
+
+.abi_wis .ability_value:after {
+  counter-reset: wis var(--abi_WIS);
+  content: " ("counter(wis)")";
+}
+
+.abi_cha .ability_value:after {
+  counter-reset: cha var(--abi_CHA);
+  content: " ("counter(cha)")";
+}
+
+.str:after {
+  counter-reset: str var(--abi_STR);
+  content: " ("counter(str)")";
+}
+
+.str.proficient:after {
+  counter-reset: bonus calc(var(--bonus_prof) + var(--abi_STR));
+  content: " ("counter(bonus)")";
+}
+
+.str.expertise:after {
+  counter-reset: bonus calc(var(--bonus_expertise) + var(--abi_STR));
+  content: " ("counter(bonus)")";
+}
+
+.dex:after {
+  counter-reset: bonus var(--abi_DEX);
+  content: " ("counter(bonus)")";
+}
+
+.dex.proficient:after {
+  counter-reset: bonus calc(var(--bonus_prof) + var(--abi_DEX));
+  content: " ("counter(bonus)")";
+}
+
+.dex.expertise:after {
+  counter-reset: bonus calc(var(--bonus_expertise) + var(--abi_DEX));
+  content: " ("counter(bonus)")";
+}
+
+.int:after {
+  counter-reset: bonus var(--abi_INT);
+  content: " ("counter(bonus)")";
+}
+
+.int.proficient:after {
+  counter-reset: bonus calc(var(--bonus_prof) + var(--abi_INT));
+  content: " ("counter(bonus)")";
+}
+
+.int.expertise:after {
+  counter-reset: bonus calc(var(--bonus_expertise) + var(--abi_INT));
+  content: " ("counter(bonus)")";
+}
+
+.wis:after {
+  counter-reset: bonus var(--abi_WIS);
+  content: " ("counter(bonus)")";
+}
+
+.wis.proficient:after {
+  counter-reset: bonus calc(var(--bonus_prof) + var(--abi_WIS));
+  content: " ("counter(bonus)")";
+}
+
+.wis.expertise:after {
+  counter-reset: bonus calc(var(--bonus_expertise) + var(--abi_WIS));
+  content: " ("counter(bonus)")";
+}
+
+.cha:after {
+  counter-reset: bonus var(--abi_CHA);
+  content: " ("counter(bonus)")";
+}
+
+.cha.proficient:after {
+  counter-reset: bonus calc(var(--bonus_prof) + var(--abi_CHA));
+  content: " ("counter(bonus)")";
+}
+
+.cha.expertise:after {
+  counter-reset: bonus calc(var(--bonus_expertise) + var(--abi_CHA));
+  content: " ("counter(bonus)")";
+}

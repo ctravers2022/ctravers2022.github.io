@@ -1,0 +1,335 @@
+@charset "UTF-8";
+/* CSS Document */
+
+@font-face {
+	font-family: 'EotE Symbol';
+	src: url('https://cdn.glitch.com/3f582574-2178-4a49-a2c5-1e609372f34c%2Feotesymbol-regular-webfont.ttf?1491892810327') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+  font-size:10px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.flex-parent {
+	display:flex;
+}
+.col-children {
+	flex-direction:row;
+}
+.row-children {
+	flex-direction:column;
+}
+
+.flex-child {
+	flex:1;
+}
+.hide {
+  display:none;
+}
+body {
+	width:100%;
+	height:100%;
+	font-size:8px;
+  position:fixed;
+  padding:1em;
+  margin:0;
+	/* display: flex;
+	flex-direction: column; */
+}
+header.flex-child {
+	flex:2;
+  font-size:1.5rem;
+}
+
+main.flex-child {
+	flex:12;
+	/* display:flex; */
+	/* flex-direction: row; */
+}
+section {
+	padding:.5em;
+	margin: .25em;
+}
+#destiny-pool {
+	text-align: left;
+	flex:10;
+}
+
+#edit-link {
+	text-align: right;
+	flex:1;
+}
+
+#resolution {
+	text-align: right;
+	flex:1;
+}
+
+.panel {
+	border:1px solid #CDCDCD;
+	border-radius: 1em;
+}
+#select-dice .dice-row {
+	margin:.25em 0;
+	text-align: center;
+
+}
+
+#roll-results-area {
+	flex:1;
+}
+#net-results-area {
+	flex:7;
+	overflow-y: scroll;
+}
+#net-results-area ol {
+	padding-left:2em;
+  margin-top:0;
+}
+#net-results-area li {
+	padding:0em;
+	border-bottom:1px solid #cdcdcd;
+}
+
+#net-results-area li button{
+   font-size:2rem;
+  color: black;
+ 
+}
+
+.dice-frame label{
+	opacity:.5;
+  display:block;
+}
+
+.dice-frame img {
+	width:100%;
+  height:auto;
+  opacity:0;
+}
+
+.dice-frame {
+	padding:0 .25em;
+}
+
+.dice-frame .active {
+  opacity:1 !important;
+}
+
+.dice-frame input[type="radio"] {
+	display:none;
+}
+
+.dice-frame label:hover,
+.dice-frame .active,
+.dice-frame input:checked + label{
+	opacity:1 !important;
+}
+
+#control-buttons input {
+  font-size:2.5rem;
+  margin:.25em;
+  background-color: grey;
+  border: none;
+  border-radius: .5em;
+  padding: .25em;
+  color: white;
+  font-family: helvetica;
+  -webkit-appearance: none;
+}
+
+#destiny-pool {display:inline-block;}
+#destiny input {vertical-align:middle;display:inline-block;}
+
+#destiny-pool label.symbol {
+  margin-top:-.25em; 
+  margin-right:.25em;
+}
+
+#destiny input[type="checkbox"]{display:none;}
+#destiny label,
+#destiny-pool .plus,
+#destiny-pool .minus {
+  font-size:1em;
+  display:inline-block;
+  width: 2em;
+  height: 2em;
+  position: relative;
+}
+#destiny input:checked + .symbol:after {content:"Z";}
+#destiny input + .symbol:after {content:"z";}
+#destiny input + .symbol:after {
+  font-size:2em;
+  position: absolute;
+  display:inline-block;
+  top:0;
+  left:0;
+}
+
+#destiny-pool .plus,
+#destiny-pool .minus {
+  float:left;
+  border:none;
+  background-color:grey;
+  color:white;
+  -webkit-appearance:none;
+  padding:0;
+  text-align:center;
+  font-weight:bold;
+  
+}
+#destiny-pool .plus {
+  border-radius: 0px 5px 5px 0px;
+  margin-left:2px;
+  margin-right:.5em;
+}
+#destiny-pool .minus {
+  border-radius: 5px 0px 0px 5px;
+}
+
+/*** DICE IMAGES ***/
+#assembled-pool button {
+  font-size:1rem;
+  padding:0;
+	margin:.25em;
+	border:none;
+	-moz-border-radius: 25%;
+	-webkit-border-radius: 25%;
+	border-radius: 25%;
+	width:3em;
+	height:3em;
+	text-align: center;
+  overflow:hidden;
+	box-shadow: .125em .125em .125em 0 rgba(0,0,0,.25);
+}
+
+#assembled-pool button,
+#net-results button,
+.tooltip span,
+.symbol{
+	font-family: "EotE Symbol";
+	border:none;
+	text-align: center;
+  padding:.125em;
+}
+
+#net-results button {
+  position:relative;
+  background-color:initial;
+}
+
+#net-results button .tooltip {
+  display:none;
+  position:absolute;
+  text-align:center;
+  left:1px;
+  top:1px;
+  padding:0em;
+  line-height:1.25em;
+  font-size:1em;
+  width:1.25em;
+  height:1.25em;
+  color:white;
+  font-family:helvetica;
+  background-color:rgba(25,25,25,.85);
+  border-radius:.25em;
+}
+
+#net-results button:hover .tooltip {
+  display:inline-block;
+  z-index:1000;
+}
+
+.ability {background-color: rgba(72,186,90,1.00); color:black;}
+.difficulty {background-color: rgba(142,42,171,1.00); color:white}
+.boost {background-color: rgba(72,157,212,1.00); color:black;}
+.setback {background-color: rgba(36,36,36,1.00); color:white;}
+.proficiency {background-color: rgba(244,225,50,1.00); color:black;}
+.challenge {background-color: rgba(249,70,73,1.00); color:white}
+.force {background-color: rgba(255,255,255,1.00); color:black;}
+
+#ability label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-ability-dice.png");
+}
+
+#difficulty label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-difficulty-dice.png");
+}
+
+#boost label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-boost-dice.png");
+}
+
+#setback label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-setback-dice.png");
+}
+
+#proficiency label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-proficiency-dice.png");
+}
+
+#challenge label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-challenge-dice.png");
+}
+
+#force label {
+	background:none;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image:url("https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-force-dice.png");
+}
+
+.cancel label {
+    background-image: none !important;
+    position: relative;
+}
+.cancel img {
+   opacity: 1; 
+}
+
+@media screen and (max-width:800px){
+  main.flex-child.flex-parent.col-children {
+    flex-direction: column-reverse;
+  }
+  div#dice {
+    flex-basis: 10%;
+  }
+  body {
+    padding:1vh;
+  }
+  header.flex-child {
+    max-height:10vh;
+  }
+  main {
+    max-height:88vh;  
+  }
+  
+  #net-results-area {
+    max-height:30vh;
+  }
+  
+}

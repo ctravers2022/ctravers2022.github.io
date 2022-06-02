@@ -3,7 +3,7 @@
 
 @font-face {
 	font-family: 'EotE Symbol';
-	src: url('/fonts/eotesymbol-regular-webfont.ttf') format('truetype');
+	src: url('fonts/eotesymbol-regular-webfont.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

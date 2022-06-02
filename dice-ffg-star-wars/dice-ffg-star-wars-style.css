@@ -3,7 +3,7 @@
 
 @font-face {
 	font-family: 'EotE Symbol';
-	src: url('https://cdn.glitch.com/3f582574-2178-4a49-a2c5-1e609372f34c%2Feotesymbol-regular-webfont.ttf?1491892810327') format('truetype');
+	src: url('/fonts/eotesymbol-regular-webfont.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }

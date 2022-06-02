@@ -1,0 +1,293 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-size:8px; 
+    font-family:"Arial","Helvetica",sans-serif;
+    
+  }
+  
+  #application {
+    height:280px;
+    width:640px;
+    position:fixed;
+    top:0;
+    left:0;
+  }
+  .flex-parent {
+      display:flex;
+  }
+  .col-children {
+      flex-direction:row;
+  }
+  .row-children {
+      flex-direction:column;
+  }
+  
+  .flex-child {
+      flex-grow:1;
+    flex-shrink:0;
+    flex-basis:1px;
+  }
+  
+  header.flex-child {
+    flex:2;
+    align-items:center;
+  }
+  
+  header .sm-button {
+    flex:2; 
+  }
+  header .instructions {
+    flex:20 
+  }
+  header .version {
+    flex:2
+  }
+  
+  
+  main.flex-child {
+    flex:22;
+  }
+  
+  .hide,
+  section::-webkit-scrollbar{ display: none;}
+  
+  section {border: 1px solid grey;}
+  .panel-header {
+    box-shadow: 0px 4px 4px rgba(0,0,0,.125);
+    align-items:center;
+  }
+  
+  main section {
+    overflow-y:scroll; 
+    position:relative;
+    border:none;
+    margin:2px;
+    box-shadow:0px 1px 8px rgba(0,0,0,.25);
+  }
+  
+  main section .names-check {
+    display:none;
+  }
+  .names-check + div label {
+    display:inline-block; 
+    padding:.5em;
+  }
+  
+
+  #edit-names-pc:checked + div label{ background-color:lightgreen;}
+  
+  main section .names-check:checked ~ .roster .hide {
+    display:initial;
+  }
+  
+  main section .names-check:checked ~ .roster .name {
+    flex:20 !important; 
+  }
+  
+  main section .names-check:checked ~ .roster .enlarge {
+    flex:5; 
+  }
+  
+  main section .names-check:checked ~ .roster input[type="range"],
+  main section .names-check:checked ~ .roster .dice,
+  main section .names-check:checked ~ .roster .roll,
+  main section .names-check:checked ~ .roster .edge-button
+  
+  {
+    display:none;
+  }
+  
+  .player-row .enlarge:focus {
+    font-size:2em;
+    flex:4;
+  }
+  
+  .player-row .name,
+  .player-row .init-d6,
+  .player-row .init-mod,
+  .player-row .init-result{
+    width:100%; 
+    text-align:center;
+  }
+  
+  .player-row .init-d6 {
+    margin-left:1em; 
+  }
+  
+  
+  .result-row {
+    box-shadow:0 1px 2px rgba(0,0,0,.25);
+    margin-bottom:.25em;
+    font-size:1.25em;
+    align-items:stretch; /* FLEX */
+  }
+  
+  .result-row .source {
+    font-weight:bold;
+    padding:.25em;
+  }
+  
+  .result-row .results {
+    flex:9;
+    text-align:left;
+    padding:.25em;
+  }
+  
+  .result-row .reroll {
+    flex:1;
+    margin:.25em !important;
+    position:relative;
+    
+  }
+  .result-row .hit-count {
+    flex:2;
+  }
+  
+  .results {
+    display:inline-block;
+  }
+  
+  .player-row {
+    position:relative;
+    margin:.5em;
+    height:3em;
+    align-items:center; /* FLEX */
+  }
+  
+  
+  .player-row *,
+  .result-row .reroll{
+    font-size:1em;
+  }
+  
+  
+  
+  .player-row .edge {
+    display:none;
+  }
+  
+  .player-row .edge-button {
+    text-align:center;
+    margin:0 .5em;
+  }
+  
+  
+  .player-row .number {
+    text-align:center;
+    font-size:1.5em;
+  }
+  
+  .player-row .dice.number  {
+    min-width:2.5em; 
+  }
+  
+  
+  .player-row .roll,
+  .result-row .reroll{
+    margin:0;
+    appearance:none;
+    -webkit-appearance:none;
+    height:100%;
+  }
+  
+  
+  .result-row .reroll.edge:after {
+      content: "EDGE";
+      font-size: 1em;
+      position: absolute;
+      border-radius: 5em;
+      left: 0;
+      top: 0;
+      line-height: 1.7em;
+      WIDTH: 100%;
+      height: 100%;
+      color: white;
+      background-color: black;
+  }
+  
+  .sm-button {
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 5em;
+      margin: 4px;
+      font-size:1.5em;
+      background-color: white;
+      border: none;
+      /* border: 1px solid grey; */
+      padding: .25em .5em;
+      box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    transition: all ease-in-out .2s;
+  }
+  
+  .sm-button:active{
+     background-color:lightgreen; 
+  }
+  
+  .roll.sm-button {background-color:lightgreen;}
+  .edge-button { background-color:rgba(0,0,0,0);}
+  .edge:checked + .edge-button {background-color:black; color:white;}
+  
+  .pc .hit {background-color:lightgreen;}
+  .pc .hits {background-color:lightgreen;}
+  .pc {margin-right:0em;margin-left:0em}
+  
+  
+  .rerolled {
+    text-decoration:line-through;
+    color:grey;
+  }
+  
+  
+  .center{
+    text-align:center;
+  }
+  
+  .right{
+    text-align: right;
+  }
+  
+  .left {
+    text-align:left; 
+  }
+  
+  section h2 {
+    text-align:center; 
+  }
+  .dice-row {
+    margin-bottom:0;
+    padding:0;
+  }
+  .dice-row li {
+    display:inline-block;
+    list-style-type:none;
+  }
+  
+  .results {
+    margin:0;
+    padding:0;
+  }
+  
+  .results li {
+    left:0;
+    display:inline-block;
+    position:relative;
+    margin-bottom:1px;
+    margin-right:1px;
+    text-align:center;
+    padding:2px;
+  }
+  
+  .hits {
+    width:100%;
+    height:100%;
+    text-align:center;
+    border:0;
+    line-height:1em;
+    font-size:1em;
+    padding:2px;
+    margin-top:1px;
+  }
+  

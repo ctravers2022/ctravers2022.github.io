@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FFG - Dice</title>
+    <meta name="description" content="Die Roller for Fantasy Flight Games: Star Wars">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="apple-touch-icon" sizes="57x57" href="" />
+    <link rel="apple-touch-icon" sizes="72x72" href="" />
+    <link rel="apple-touch-icon" sizes="114x114" href="" />
+    <link rel="apple-touch-icon" sizes="144x144" href="" />
+  </head>
+<body class="flex-parent row-children">
+<header class="flex-child">
+ 	<section id="destiny" class="flex-parent col-children"> 
+	  <span class="flex-child" id="destiny-pool">
+      <input type="button" onclick="views.remDestiny()" class="minus" value="-">
+      <input type="button" onclick="views.addDestiny()" class="plus" value="+"></span>
+    <div id="d100" class="flex-child"><button onclick="views.d100()">d100</button> <span id="d100Area"></span></div>
+      <span class="flex-child hide" id="edit-link"><a href="https://glitch.com/edit/#!/ffg-dice3">v2.0</a> | </span>
+      <span class="flex-child hide" id="resolution"> w: <span id="winWidth">
+      </span> / h: <span id="winHieght"></span></span> 
+	</section>
+</header>
+<main class="flex-child flex-parent col-children">
+  <div id="dice" class="flex-child flex-parent row-children">
+      <form id="select-dice" class="flex-child flex-parent row-children">
+      <div id="boost" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="boost" type="radio"  id="boost-0"><label  for="boost-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="boost" type="radio"  id="boost-1"><label  for="boost-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="boost" type="radio"  id="boost-2"><label  for="boost-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="boost" type="radio"  id="boost-3"><label  for="boost-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="boost" type="radio"  id="boost-4"><label  for="boost-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="boost" type="radio"  id="boost-5"><label  for="boost-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="boost" type="radio"  id="boost-6"><label  for="boost-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="boost" type="radio"  id="boost-7"><label  for="boost-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="boost" type="radio"  id="boost-8"><label  for="boost-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="boost" type="radio"  id="boost-9"><label  for="boost-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="boost" type="radio" id="boost-10"><label for="boost-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="ability" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="ability" type="radio"  id="ability-0"><label  for="ability-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="ability" type="radio"  id="ability-1"><label  for="ability-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="ability" type="radio"  id="ability-2"><label  for="ability-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="ability" type="radio"  id="ability-3"><label  for="ability-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="ability" type="radio"  id="ability-4"><label  for="ability-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="ability" type="radio"  id="ability-5"><label  for="ability-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="ability" type="radio"  id="ability-6"><label  for="ability-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="ability" type="radio"  id="ability-7"><label  for="ability-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="ability" type="radio"  id="ability-8"><label  for="ability-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="ability" type="radio"  id="ability-9"><label  for="ability-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="ability" type="radio" id="ability-10"><label for="ability-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="proficiency" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="proficiency" type="radio"  id="proficiency-0"><label  for="proficiency-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="proficiency" type="radio"  id="proficiency-1"><label  for="proficiency-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="proficiency" type="radio"  id="proficiency-2"><label  for="proficiency-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="proficiency" type="radio"  id="proficiency-3"><label  for="proficiency-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="proficiency" type="radio"  id="proficiency-4"><label  for="proficiency-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="proficiency" type="radio"  id="proficiency-5"><label  for="proficiency-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="proficiency" type="radio"  id="proficiency-6"><label  for="proficiency-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="proficiency" type="radio"  id="proficiency-7"><label  for="proficiency-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="proficiency" type="radio"  id="proficiency-8"><label  for="proficiency-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="proficiency" type="radio"  id="proficiency-9"><label  for="proficiency-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="proficiency" type="radio" id="proficiency-10"><label for="proficiency-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="setback" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="setback" type="radio"  id="setback-0"><label  for="setback-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="setback" type="radio"  id="setback-1"><label  for="setback-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="setback" type="radio"  id="setback-2"><label  for="setback-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="setback" type="radio"  id="setback-3"><label  for="setback-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="setback" type="radio"  id="setback-4"><label  for="setback-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="setback" type="radio"  id="setback-5"><label  for="setback-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="setback" type="radio"  id="setback-6"><label  for="setback-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="setback" type="radio"  id="setback-7"><label  for="setback-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="setback" type="radio"  id="setback-8"><label  for="setback-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="setback" type="radio"  id="setback-9"><label  for="setback-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="setback" type="radio" id="setback-10"><label for="setback-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="difficulty" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="difficulty" type="radio"  id="difficulty-0"><label  for="difficulty-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="difficulty" type="radio"  id="difficulty-1"><label  for="difficulty-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="difficulty" type="radio"  id="difficulty-2"><label  for="difficulty-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="difficulty" type="radio"  id="difficulty-3"><label  for="difficulty-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="difficulty" type="radio"  id="difficulty-4"><label  for="difficulty-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="difficulty" type="radio"  id="difficulty-5"><label  for="difficulty-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="difficulty" type="radio"  id="difficulty-6"><label  for="difficulty-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="difficulty" type="radio"  id="difficulty-7"><label  for="difficulty-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="difficulty" type="radio"  id="difficulty-8"><label  for="difficulty-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="difficulty" type="radio"  id="difficulty-9"><label  for="difficulty-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="difficulty" type="radio" id="difficulty-10"><label for="difficulty-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="challenge" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="challenge" type="radio"  id="challenge-0"><label  for="challenge-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="challenge" type="radio"  id="challenge-1"><label  for="challenge-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="challenge" type="radio"  id="challenge-2"><label  for="challenge-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="challenge" type="radio"  id="challenge-3"><label  for="challenge-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="challenge" type="radio"  id="challenge-4"><label  for="challenge-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="challenge" type="radio"  id="challenge-5"><label  for="challenge-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="challenge" type="radio"  id="challenge-6"><label  for="challenge-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="challenge" type="radio"  id="challenge-7"><label  for="challenge-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="challenge" type="radio"  id="challenge-8"><label  for="challenge-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="challenge" type="radio"  id="challenge-9"><label  for="challenge-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="challenge" type="radio" id="challenge-10"><label for="challenge-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="force" class="flex-child flex-parent col-children dice-row">
+        <div class="flex-child dice-frame cancel"><input  value="0" name="force" type="radio"  id="force-0"><label  for="force-0"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="1" name="force" type="radio"  id="force-1"><label  for="force-1"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="2" name="force" type="radio"  id="force-2"><label  for="force-2"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="3" name="force" type="radio"  id="force-3"><label  for="force-3"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="4" name="force" type="radio"  id="force-4"><label  for="force-4"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="5" name="force" type="radio"  id="force-5"><label  for="force-5"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="6" name="force" type="radio"  id="force-6"><label  for="force-6"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="7" name="force" type="radio"  id="force-7"><label  for="force-7"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="8" name="force" type="radio"  id="force-8"><label  for="force-8"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input  value="9" name="force" type="radio"  id="force-9"><label  for="force-9"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+        <div class="flex-child dice-frame"><input value="10" name="force" type="radio" id="force-10"><label for="force-10"><img src="https://cdn.glitch.com/a528edb0-0d90-4e30-9423-37c4565d2733%2FFFG-placeholder-dice.png?1492041833289" alt=""/></label></div>
+      </div>
+      <div id="control-buttons" class="flex-child flex-parent col-children dice-row">
+        <input class="flex-child" type="button" value="Roll" onclick="dice.roll()">
+        <input class="flex-child" type="reset" onclick="dice.clear()" value="Clear">
+      </div>
+      </form>
+  </div>
+  <div id="results" class="flex-child flex-parent row-children">
+    <section id="roll-results-area" class="flex-child panel">
+      <div id="assembled-pool"></div>
+    </section>
+    <section id="net-results-area" class="flex-child panel">
+      <div id="net-results">
+      <ol reversed id="net-results-list">
+      </ol>
+      </div>
+    </section>
+  </div>
+  </main>
+  
+  
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script src="/client.js"></script>
+
+  </body>
+</html>

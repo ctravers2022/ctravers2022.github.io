@@ -2,77 +2,170 @@
 <html>
   <head>
     <title>SR5 Dice App NOW WITH STYLE!</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="/dice-sr-five/dice-sr-five-style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <link rel="stylesheet" href="/dice-sr-five/dice-sr-five-style.css" />
     <link rel="shortcut icon" href="/assets/sr5-dice-57x57.png" />
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/sr5-dice-57x57.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/sr5-dice-72x72.png" />
-    <link rel="apple-touch-icon" sizes="114x114" href="assets/sr5-dice-114x114.png" />
-    <link rel="apple-touch-icon" sizes="144x144" href="assets/sr5-dice-144x144.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="assets/sr5-dice-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="assets/sr5-dice-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="assets/sr5-dice-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="assets/sr5-dice-144x144.png"
+    />
     <script src="dice-sr-five-script.js" defer></script>
-<style>
-</style>
-</head>
-<body>
-<div id="application" class="flex-parent row-children">
-  <header class="flex-child flex-parent col-children">
-    <button class="sm-button flex-child" onclick="display.reset()">Reset</button>
-    <span class="flex-child center instructions">Add to Roster:(+). Display/Hide Initative (Initative). Use Edge (E). Use slider for die pool. Roll (R). Reroll (RR).</span>
-    <a class="flex-child right version" style="font-size:8px;" href="https://glitch.com/edit/#!/sr5-dice4?path=index.html:72:10">version 4.0</a>
-    <div class="flex-child">
-<iframe width="20" height="20" src="https://www.youtube.com/embed/pmlNSa1szEA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    <style></style>
+  </head>
+  <body>
+    <div id="app" class="fullscreen">
+      <header id="app-menu">
+        <button class="sm-button menu-item left" onclick="display.reset()">
+          Reset
+        </button>
+        <span class="menu-item center instructions"
+          >Add to Roster:(+). Display/Hide Initative (Initative). Use Edge (E).
+          Use slider for die pool. Roll (R). Reroll (RR).</span
+        >
+        <span
+          class="menu-item right version"
+          style="font-size: 8px"
+          >version 4.1</span
+        >
+        <div class="hide">
+          <iframe
+            width="20"
+            height="20"
+            src="https://www.youtube.com/embed/pmlNSa1szEA?rel=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </header>
+      <main id="app-window">
+        <section id="roster" class="panel left">
+          <input
+            class="names-check"
+            type="checkbox"
+            id="edit-names-pc"
+          />
+          <div class="panel-header">
+            <h2>Players</h2>
+            <label class="roster-initiative button" for="edit-names-pc"
+              >Initiative</label
+            >
+            <button
+              class="roster-add button"
+              onclick="display.addNew('pc-roster','pc')"
+            >
+              +
+            </button>
+            <button
+              class="roster-clear button"
+              onclick="display.clearRoster('pc-roster')"
+            >
+              Clear
+            </button>
+          </div>
+          <div id="pc-roster" class="scrollable"></div>
+        </section>
+        <section id="rolls" class="panel right">
+          <div class="panel-header">
+            <h2>Results</h2>
+            <button
+              class="clear button button-small"
+              onclick="display.clearRoster('result-rows')"
+            >
+              Clear
+            </button>
+          </div>
+          <div id="results-window" class="scrollable">
+            <!-- START of rows -->
+            <div id="result-rows"></div>
+            <!-- END of rows -->
+          </div>
+        </section>
+      </main>
     </div>
-  </header>
-  <main class="flex-child flex-parent col-children">
-    <section class="flex-child left">
-      <input class="names-check flex-child" type="checkbox" id="edit-names-pc">
-      <div class="flex-parent col-children panel-header">
-         <h2 class="flex-child">Players</h2>
-        <label class="flex-child sm-button center" for="edit-names-pc">Initiative</label>
-        <button class="add-new flex-child sm-button" onclick="display.addNew('pc-roster','pc')">+</button>
-        <button class="clear flex-child sm-button" onclick="display.clearRoster('pc-roster')">Clear</button>
+    <div id="repeatable" class="hide">
+      <div class="result-row">
+        <div class="results-name left"></div>
+        <ul class="results-dice"></ul>
+        <button class="results-reroll button" onclick="dice.reRoll(this)">
+          RR
+        </button>
+        <div class="results hit-count">
+          <input class="hits" type="text" placeholder="0" />
+        </div>
       </div>
-      <div id="pc-roster" class="roster">
+      <div class="player-row">
+        <input
+          class="player name enlarge"
+          tabindex="1"
+          type="text"
+          placeholder="Name"
+        >
+        <input
+          type="tel"
+          class="player init-d6 hide enlarge"
+          tabindex="2"
+          value="1"
+        >
+        <span class="left hide"> d6</span>
+        <span class="center hide"> + </span>
+        <input
+          type="tel"
+          class="player init-mod hide enlarge"
+          tabindex="2"
+          value="1"
+        >
+        <button
+          class="player init-roll button hide"
+          onclick="dice.initiative(this)"
+        >
+          R
+        </button>
+        <input
+          type="tel"
+          class="player init-result enlarge"
+          placeholder="initiative"
+        >
+        <input type="checkbox" class="button edge"><label
+          class="player edge-button button"
+          >E</label
+        >
+        <input
+          type="range"
+          min="1"
+          max="40"
+          value="5"
+          oninput="display.updateSlider(this)"
+          class="player slider"
+          id="myRange"
+        >
+        <span class="player dice number">5</span>
+        <button class="player roll button" onclick="rollNew(this)">
+          R
+        </button>
       </div>
-    </section>
-    <section class="flex-child right">
-      <div class="flex-parent col-children panel-header">
-        <h2 class="flex-child">Results</h2>
-        <button class="clear flex-child sm-button" onclick="display.clearRoster('result-rows')">Clear</button>
-      </div>
-      <div id="results-window">
-    <!-- START of rows -->
-    <div id="result-rows">  
     </div>
-    <!-- END of rows -->
-      </div>
-    </section>
-  </main>
-  </div>
-  <div id="repeatable" class="hide">
-    <div class="result-row flex-parent col-children">
-      <div class="flex-child source left"></div>
-      <ul class="results flex-child"></ul>
-      <button class="reroll flex-child sm-button" onclick="dice.reRoll(this)">RR</button>
-      <div class="hit-count flex-child"><input class="hits" type="text" placeholder="0"></div>
-    </div>
-    <div class="player-row flex-parent col-children">
-      <input class="name flex-child enlarge" tabindex="1" type="text" placeholder="Name">
-      <input type="tel" class="flex-child init-d6 hide enlarge" tabindex="2" value="1">
-      <span class="flex-child left hide"> d6</span>
-      <span class="flex-child center hide"> + </span>
-      <input type="tel" class="flex-child init-mod hide enlarge" tabindex="2" value="1">
-      <button class="sm-button flex-child init-roll hide" onclick="dice.initiative(this)">R</button>
-      <input type="tel" class="init-result flex-child enlarge" placeholder="initiative">
-      <input type="checkbox" class="edge flex-child" onchange=""><label class="edge-button sm-button">E</label>
-      <input type="range" min="1" max="40" value="5" oninput="display.updateSlider(this)" class="slider flex-child" id="myRange">
-      <span class="dice number flex-child">5</span>
-      <button class="roll flex-child sm-button" onclick="rollNew(this)">R</button>
-    </div>
-  </div>
   </body>
-  
 </html>

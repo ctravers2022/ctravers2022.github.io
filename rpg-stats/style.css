@@ -164,7 +164,7 @@ p {
 }
 
 .proficient {
-  color:rgb(255,0,255);
+  font-weight:700;
 }
 
 .list_skill {
@@ -173,6 +173,10 @@ p {
 
 .list_skill .proficient {
   list-style-type: circle;
+}
+
+.list_skill li:not(.proficient){
+  display:none; 
 }
 
 .list_skill .expertise {
